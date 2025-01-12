@@ -1,0 +1,44 @@
+type Product {
+    id: ID!
+    title: String!
+    description: String!
+    category: String!
+    price: Float!
+    stock: Int!
+    image: String
+    discount: Int!
+    discountPrice: Float
+    isActive: Boolean!
+}
+
+type Query {
+    getAllProducts: [Product]
+    getProductById(id: ID!): Product
+    searchProduct(ch: String!): [Product]
+    getAllActiveProducts(category: String): [Product]
+}
+
+type Mutation {
+    saveProduct(
+        title: String!
+        description: String!
+        category: String!
+        price: Float!
+        stock: Int!
+        image: String
+        discount: Int!
+        isActive: Boolean!
+    ): Product
+    updateProduct(
+        id: ID!
+        title: String
+        description: String
+        category: String
+        price: Float
+        stock: Int
+        image: String
+        discount: Int
+        isActive: Boolean
+    ): Product
+    deleteProduct(id: ID!): Boolean
+}
